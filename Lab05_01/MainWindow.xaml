@@ -1,0 +1,31 @@
+﻿<Window x:Class="Lab05_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab05_01"
+        mc:Ignorable="d"
+        Title="Text Editor" Height="400" Width="500" Opacity="1" Icon="icons/T1-icon.png" BorderThickness="0,0,0,0" ResizeMode="CanResize"  MinHeight="350" MinWidth="400">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Height="50">
+            <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Width="30" Height="30" Margin="10,0,0,0">
+                <Image Source="icons/text_bold.png" Width="25" Height="25" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Width="30" Height="30" Margin="10,0,0,0">
+                <Image Source="icons/text_italic.png" Width="25" Height="25" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Width="30" Height="30" Margin="10,0,0,0">
+                <Image Source="icons/text_underline.png" Width="25" Height="25" />
+            </ToggleButton>
+
+            <Separator  Margin="10"/>
+            <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged"  FontFamily="Times New Roman" FontSize="14" />
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+        </ToolBar>
+        <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
+            <Button x:Name="btnSave" Content="Save" Background="LightGreen" Width="100" Height="40" Click="btnSave_Click"  Margin="0,0,50,0" FontFamily="Times New Roman" FontSize="16" />
+            <Button x:Name="btnExit" Content="Exit" Background="LightSalmon" Width="100" Height="40" Click="btnExit_Click" Margin="50,0,0,0" FontFamily="Times New Roman" FontSize="16"/>
+        </WrapPanel>
+        <RichTextBox x:Name="rtbEditor" Margin="10" SelectionChanged="rtbEditor_SelectionChanged"  FontFamily="Times New Roman" FontSize="14"/>
+    </DockPanel>
+</Window>
